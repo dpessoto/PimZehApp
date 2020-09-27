@@ -2,7 +2,7 @@ package com.unip.pimzeh.model;
 
 public class Usuario {
 
-    private Integer cpf;
+    private String cpf;
     private String nome;
     private String email;
     private String senha;
@@ -10,16 +10,16 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Integer cpf, String senha) {
+    public Usuario(String cpf, String senha) {
         this.cpf = cpf;
         this.senha = senha;
     }
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

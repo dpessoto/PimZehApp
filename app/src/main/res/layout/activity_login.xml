@@ -26,7 +26,7 @@
         tools:visibility="visible" />
 
     <EditText
-        android:id="@+id/editCPF"
+        android:id="@+id/loginEditCPF"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/editLoginSenha"
+        android:id="@+id/loginEditSenha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -64,10 +64,10 @@
         android:textColorHint="#B5B5B5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCPF" />
+        app:layout_constraintTop_toBottomOf="@+id/loginEditCPF" />
 
     <Button
-        android:id="@+id/buttonLoginEntrar"
+        android:id="@+id/loginBtnLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -81,10 +81,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editLoginSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/loginEditSenha" />
 
     <TextView
-        android:id="@+id/textCadastrar"
+        android:id="@+id/loginTextCadastrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -92,15 +92,16 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:onClick="abrirCadastro"
         android:text="Cadastre-se"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLoginEntrar" />
+        app:layout_constraintTop_toBottomOf="@+id/loginBtnLogin" />
 
     <ProgressBar
-        android:id="@+id/progressLogin"
+        android:id="@+id/loginProgressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="51dp"
         android:layout_height="54dp"
@@ -113,7 +114,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textCadastrar"
+        app:layout_constraintTop_toBottomOf="@+id/loginTextCadastrar"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
