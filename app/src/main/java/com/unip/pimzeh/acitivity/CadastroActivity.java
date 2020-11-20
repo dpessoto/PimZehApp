@@ -15,6 +15,8 @@ import com.unip.pimzeh.R;
 import com.unip.pimzeh.model.Usuario;
 
 import static com.unip.pimzeh.util.LoginUtil.salvarUsuario;
+import static com.unip.pimzeh.util.LoginUtil.verificarCpf;
+import static com.unip.pimzeh.util.LoginUtil.verificarEmail;
 
 public class CadastroActivity extends AppCompatActivity {
     private EditText editNome, editEmail, editCpf, editSenha;
@@ -57,10 +59,17 @@ public class CadastroActivity extends AppCompatActivity {
             Toast.makeText(context, "A senha deve ter no mínimo 8 caracteres", Toast.LENGTH_SHORT).show();
         } else {
             Usuario usuario = new Usuario(cpf, nome, email, senha);
-            salvarUsuario(usuario, context);
 
-            startActivity(new Intent(context, MainActivity.class));
-            finish();
+            if (verificarCpf(usuario, context)) {
+                Toast.makeText(context, "CPF já cadastrado!", Toast.LENGTH_LONG).show();
+            } else if (verificarEmail(usuario, context)) {
+                Toast.makeText(context, "Email já cadastrado!", Toast.LENGTH_LONG).show();
+            } else {
+                salvarUsuario(usuario, context);
+
+                startActivity(new Intent(context, MainActivity.class));
+                finish();
+            }
         }
     }
 

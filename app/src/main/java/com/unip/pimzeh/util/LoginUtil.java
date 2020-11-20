@@ -25,6 +25,20 @@ public class LoginUtil {
         prefsEditor.apply();
     }
 
+    public static Boolean verificarCpf(Usuario usuario, Context context) {
+        SharedPreferences mPrefs = context.getSharedPreferences(LOGIN_KEY + usuario.getCpf(), 0);
+        String cpf = mPrefs.getString(LOGIN_CPF, "-1");
+
+        return !cpf.equals("-1");
+    }
+
+    public static Boolean verificarEmail(Usuario usuario, Context context) {
+        SharedPreferences mPrefs = context.getSharedPreferences(LOGIN_KEY + usuario.getCpf(), 0);
+        String email = mPrefs.getString(LOGIN_EMAIL, "-1");
+
+        return !email.equals("-1");
+    }
+
     public static String recuperarLogin(Usuario usuario, Context context) {
         SharedPreferences mPrefs = context.getSharedPreferences(LOGIN_KEY + usuario.getCpf(), 0);
         return mPrefs.getString(LOGIN_SENHA, "-1");
