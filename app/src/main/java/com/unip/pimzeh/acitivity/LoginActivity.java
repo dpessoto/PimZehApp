@@ -25,7 +25,6 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginBtnLogin;
     private ProgressBar loginProgressBar;
     private Context context;
-
     private Usuario usuario;
 
     @RequiresApi(api = Build.VERSION_CODES.M)

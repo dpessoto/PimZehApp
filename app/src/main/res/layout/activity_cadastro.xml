@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editCadastroNome" />
 
     <EditText
-        android:id="@+id/editCadastroEmail2"
+        android:id="@+id/editCadastroCpf"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -101,10 +101,10 @@
         android:textColorHint="#B5B5B5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCadastroEmail2" />
+        app:layout_constraintTop_toBottomOf="@+id/editCadastroCpf" />
 
     <Button
-        android:id="@+id/buttonCadastroCadastrar"
+        android:id="@+id/btnCadastrar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -130,6 +130,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCadastroCadastrar"
+        app:layout_constraintTop_toBottomOf="@+id/btnCadastrar"
         app:layout_constraintVertical_bias="0.119" />
 </androidx.constraintlayout.widget.ConstraintLayout>
