@@ -19,6 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.unip.pimzeh.R;
 import com.unip.pimzeh.model.Usuario;
 
+import static com.unip.pimzeh.util.LoginUtil.recuperarLogin;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText loginEditCpf, loginEditSenha;
@@ -67,12 +69,16 @@ public class LoginActivity extends AppCompatActivity {
     private void validarLogin(Usuario usuario) {
         loginProgressBar.setVisibility(View.VISIBLE);
 
-        if (usuario.getCpf().equals("43271447896") && usuario.getSenha().equals("1234")) {
+        if (recuperarLogin(usuario, context)) {
             loginProgressBar.setVisibility(View.GONE);
             Toast.makeText(context, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
+
+            startActivity(new Intent(context, MainActivity.class));
+            finish();
+
         } else {
             loginProgressBar.setVisibility(View.GONE);
-            Toast.makeText(context, "Erro ao fazer login!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "CPF ou senha errado!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -110,7 +116,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void abrirCadastro(View view) {
-        Intent intent = new Intent(context, CadastroActivity.class);
         startActivity(new Intent(context, CadastroActivity.class));
     }
 }

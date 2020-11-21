@@ -69,6 +69,7 @@ public class CadastroActivity extends AppCompatActivity {
                 salvarUsuario(usuario, context);
                 salvarListaEmail(usuario, context);
 
+                Toast.makeText(context, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(context, MainActivity.class));
                 finish();
             }

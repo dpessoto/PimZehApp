@@ -108,9 +108,10 @@ public class LoginUtil {
         return !email.equals("-1");
     }
 
-    public static String recuperarLogin(Usuario usuario, Context context) {
+    public static Boolean recuperarLogin(Usuario usuario, Context context) {
         SharedPreferences mPrefs = context.getSharedPreferences(LOGIN_KEY + usuario.getCpf(), 0);
-        return mPrefs.getString(LOGIN_SENHA, "-1");
+
+        return mPrefs.getString(LOGIN_SENHA, "-1").equals(usuario.getSenha());
     }
 
 
