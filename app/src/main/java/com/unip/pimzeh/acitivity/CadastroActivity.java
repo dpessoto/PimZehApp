@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.unip.pimzeh.R;
 import com.unip.pimzeh.model.Usuario;
 
+import static com.unip.pimzeh.util.LoginUtil.salvarListaEmail;
 import static com.unip.pimzeh.util.LoginUtil.salvarUsuario;
 import static com.unip.pimzeh.util.LoginUtil.verificarCpf;
 import static com.unip.pimzeh.util.LoginUtil.verificarEmail;
@@ -53,9 +54,9 @@ public class CadastroActivity extends AppCompatActivity {
             Toast.makeText(context, "Preencha o nome!", Toast.LENGTH_SHORT).show();
         } else if (email.length() == 0 || !email.contains("@")) {
             Toast.makeText(context, "Preencha o email!", Toast.LENGTH_SHORT).show();
-        } else if (cpf.length() < 10) {
+        } else if (cpf.length() < 11) {
             Toast.makeText(context, "Preencha o CPF!", Toast.LENGTH_SHORT).show();
-        } else if (senha.length() < 7) {
+        } else if (senha.length() < 8) {
             Toast.makeText(context, "A senha deve ter no mínimo 8 caracteres", Toast.LENGTH_SHORT).show();
         } else {
             Usuario usuario = new Usuario(cpf, nome, email, senha);
@@ -66,6 +67,7 @@ public class CadastroActivity extends AppCompatActivity {
                 Toast.makeText(context, "Email já cadastrado!", Toast.LENGTH_LONG).show();
             } else {
                 salvarUsuario(usuario, context);
+                salvarListaEmail(usuario, context);
 
                 startActivity(new Intent(context, MainActivity.class));
                 finish();
