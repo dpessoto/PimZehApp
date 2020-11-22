@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
             alert.show();
         });
 
+        txtCliqueAqui.setOnClickListener(view -> startActivity(new Intent(context, WebActivity.class)));
+
     }
 
     public void inicializarComponentes() {
