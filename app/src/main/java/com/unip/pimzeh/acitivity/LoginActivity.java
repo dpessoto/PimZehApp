@@ -20,6 +20,7 @@ import com.unip.pimzeh.R;
 import com.unip.pimzeh.model.Usuario;
 
 import static com.unip.pimzeh.util.LoginUtil.recuperarLogin;
+import static com.unip.pimzeh.util.LoginUtil.salvarUsuarioLogado;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -72,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
         if (recuperarLogin(usuario, context)) {
             loginProgressBar.setVisibility(View.GONE);
             Toast.makeText(context, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
+            salvarUsuarioLogado(usuario, context);
 
             startActivity(new Intent(context, MainActivity.class));
             finish();
@@ -117,5 +119,11 @@ public class LoginActivity extends AppCompatActivity {
 
     public void abrirCadastro(View view) {
         startActivity(new Intent(context, CadastroActivity.class));
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

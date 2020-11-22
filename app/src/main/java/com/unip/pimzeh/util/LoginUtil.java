@@ -20,7 +20,8 @@ public class LoginUtil {
     private final static String LOGIN_SENHA = "LOGIN_SENHA";
     private final static String VERIFICA_EMAIL_KEY = "VERIFICA_EMAIL_KEY";
     private final static String VERIFICA_EMAIL = "VERIFICA_EMAIL";
-
+    private final static String USUARIO_LOGADO_KEY = "USUARIO_LOGADO_KEY";
+    private final static String USUARIO_LOGADO = "USUARIO_LOGADO";
 
     public static void salvarListaEmail(Usuario usuario, Context context) {
         SharedPreferences mPrefs = context.getSharedPreferences(VERIFICA_EMAIL_KEY, 0);
@@ -69,6 +70,24 @@ public class LoginUtil {
         prefsEditor.putString(LOGIN_SENHA, usuario.getSenha());
 
         prefsEditor.apply();
+    }
+
+    public static void salvarUsuarioLogado(Usuario usuario, Context context) {
+        SharedPreferences mPrefs = context.getSharedPreferences(USUARIO_LOGADO_KEY, 0);
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+
+        prefsEditor.putString(USUARIO_LOGADO, usuario.getCpf());
+        prefsEditor.apply();
+    }
+
+    public static String recuperarUsuarioLogado(Context context) {
+        SharedPreferences mPrefs = context.getSharedPreferences(USUARIO_LOGADO_KEY, 0);
+        return mPrefs.getString(USUARIO_LOGADO, "-1");
+    }
+
+    public static String recuperarUsuarioNomeLogado(String cpf, Context context) {
+        SharedPreferences mPrefs = context.getSharedPreferences(LOGIN_KEY + cpf, 0);
+        return mPrefs.getString(LOGIN_NOME, "-1");
     }
 
     public static Boolean verificarCpf(Usuario usuario, Context context) {

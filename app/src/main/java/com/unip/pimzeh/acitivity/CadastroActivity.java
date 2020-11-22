@@ -16,6 +16,7 @@ import com.unip.pimzeh.model.Usuario;
 
 import static com.unip.pimzeh.util.LoginUtil.salvarListaEmail;
 import static com.unip.pimzeh.util.LoginUtil.salvarUsuario;
+import static com.unip.pimzeh.util.LoginUtil.salvarUsuarioLogado;
 import static com.unip.pimzeh.util.LoginUtil.verificarCpf;
 import static com.unip.pimzeh.util.LoginUtil.verificarEmail;
 
@@ -68,6 +69,7 @@ public class CadastroActivity extends AppCompatActivity {
             } else {
                 salvarUsuario(usuario, context);
                 salvarListaEmail(usuario, context);
+                salvarUsuarioLogado(usuario, context);
 
                 Toast.makeText(context, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(context, MainActivity.class));
@@ -83,5 +85,11 @@ public class CadastroActivity extends AppCompatActivity {
         editSenha = findViewById(R.id.editCadastroSenha);
         btnCadastrar = findViewById(R.id.btnCadastrar);
         loginProgressBar = findViewById(R.id.loginProgressBar);
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(context, LoginActivity.class));
+        finish();
     }
 }
