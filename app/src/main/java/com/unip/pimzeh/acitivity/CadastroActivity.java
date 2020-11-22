@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.unip.pimzeh.R;
 import com.unip.pimzeh.model.Usuario;
+import com.unip.pimzeh.util.MaskEditUtil;
 
 import static com.unip.pimzeh.util.LoginUtil.salvarListaEmail;
 import static com.unip.pimzeh.util.LoginUtil.salvarUsuario;
@@ -36,6 +37,8 @@ public class CadastroActivity extends AppCompatActivity {
 
         inicializarComponentes();
 
+        editCpf.addTextChangedListener(MaskEditUtil.mask(editCpf, MaskEditUtil.FORMAT_CPF));
+
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,7 +58,7 @@ public class CadastroActivity extends AppCompatActivity {
             Toast.makeText(context, "Preencha o nome!", Toast.LENGTH_SHORT).show();
         } else if (email.length() == 0 || !email.contains("@")) {
             Toast.makeText(context, "Preencha o email!", Toast.LENGTH_SHORT).show();
-        } else if (cpf.length() < 11) {
+        } else if (cpf.length() < 14) {
             Toast.makeText(context, "Preencha o CPF!", Toast.LENGTH_SHORT).show();
         } else if (senha.length() < 8) {
             Toast.makeText(context, "A senha deve ter no mínimo 8 caracteres", Toast.LENGTH_SHORT).show();

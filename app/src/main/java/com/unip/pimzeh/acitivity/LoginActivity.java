@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.unip.pimzeh.R;
 import com.unip.pimzeh.model.Usuario;
+import com.unip.pimzeh.util.MaskEditUtil;
 
 import static com.unip.pimzeh.util.LoginUtil.recuperarLogin;
 import static com.unip.pimzeh.util.LoginUtil.recuperarUsuarioLogado;
@@ -41,6 +42,8 @@ public class LoginActivity extends AppCompatActivity {
 
         verificaConexao();
         inicializarComponentes();
+
+        loginEditCpf.addTextChangedListener(MaskEditUtil.mask(loginEditCpf, MaskEditUtil.FORMAT_CPF));
 
         loginBtnLogin.setOnClickListener(view -> {
             dadosLogin();
