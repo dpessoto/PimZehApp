@@ -36,7 +36,6 @@
         android:inputType="text"
         android:padding="10dp"
         android:textColor="#FFFFFF"
-        android:textColorHint="#B5B5B5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -47,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:background="@drawable/background_caixa_texto"
@@ -56,7 +55,6 @@
         android:inputType="textEmailAddress"
         android:padding="10dp"
         android:textColor="#FFFFFF"
-        android:textColorHint="#B5B5B5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editCadastroNome" />
@@ -67,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:background="@drawable/background_caixa_texto"
@@ -77,31 +75,39 @@
         android:maxLength="14"
         android:padding="10dp"
         android:textColor="#FFFFFF"
-        android:textColorHint="#B5B5B5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editCadastroEmail" />
 
-    <EditText
-        android:id="@+id/editCadastroSenha"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/senha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:background="@drawable/background_caixa_texto"
-        android:ems="10"
-        android:hint="Senha"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#B5B5B5"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCadastroCpf" />
+        app:layout_constraintTop_toBottomOf="@+id/editCadastroCpf"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="#B5B5B5">
+
+        <EditText
+            android:id="@+id/editCadastroSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_caixa_texto"
+            android:ems="10"
+            android:hint="Senha"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#B5B5B5" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnCadastrar"
@@ -114,11 +120,11 @@
         android:layout_marginRight="24dp"
         android:background="@drawable/background_botao"
         android:padding="10dp"
-        android:text="Registrar"
+        android:text="Cadastrar"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCadastroSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/senha" />
 
     <ProgressBar
         android:id="@+id/progressCadastro"
@@ -132,4 +138,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCadastrar"
         app:layout_constraintVertical_bias="0.119" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
