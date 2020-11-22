@@ -20,6 +20,7 @@ import com.unip.pimzeh.R;
 import com.unip.pimzeh.model.Usuario;
 
 import static com.unip.pimzeh.util.LoginUtil.recuperarLogin;
+import static com.unip.pimzeh.util.LoginUtil.recuperarUsuarioLogado;
 import static com.unip.pimzeh.util.LoginUtil.salvarUsuarioLogado;
 
 public class LoginActivity extends AppCompatActivity {
@@ -44,6 +45,11 @@ public class LoginActivity extends AppCompatActivity {
         loginBtnLogin.setOnClickListener(view -> {
             dadosLogin();
         });
+
+        if (!recuperarUsuarioLogado(context).equals("-1")) {
+            startActivity(new Intent(context, MainActivity.class));
+            finish();
+        }
 
     }
 

@@ -85,6 +85,14 @@ public class LoginUtil {
         return mPrefs.getString(USUARIO_LOGADO, "-1");
     }
 
+    public static void limparUsuarioLogado(Context context) {
+        SharedPreferences mPrefs = context.getSharedPreferences(USUARIO_LOGADO_KEY, 0);
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+
+        prefsEditor.clear();
+        prefsEditor.apply();
+    }
+
     public static String recuperarUsuarioNomeLogado(String cpf, Context context) {
         SharedPreferences mPrefs = context.getSharedPreferences(LOGIN_KEY + cpf, 0);
         return mPrefs.getString(LOGIN_NOME, "-1");
